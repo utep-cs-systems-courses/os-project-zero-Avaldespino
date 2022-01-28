@@ -1,0 +1,42 @@
+import sys
+import re
+import os
+import subprocess
+
+
+
+if len(sys.argv) is not 3:
+    print("Correct usage: wordCount.py <Input text file> <Output file>")
+    exit()
+
+inputText = sys.argv[1]
+outputText = sys.argv[2]
+
+
+#Come back to make sure that the files exist and the program
+
+
+
+wordTotal = 0
+words = {}
+
+
+with open(inputText, 'r') as inputFile:
+    for line in inputFile:
+
+        line = line.strip()
+
+        word = re.split('[ \t]',line)
+        print(word)
+        if len(word) != 2:
+
+            print ("Badly formatted line, exiting. Bad line:\n %s" % line)
+
+            exit()
+
+        
+        words[word[0]] = int(word[1])
+        wordTotal+=1
+
+
+print(words)
